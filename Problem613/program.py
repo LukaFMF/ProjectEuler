@@ -10,3 +10,12 @@
 #and all possible directions of moving on are equiprobable, what is the 
 #probability that the ant leaves the triangle along its longest side?
 #Give your answer rounded to 10 digits after the decimal point.
+
+import math
+
+dolzinaA = 3
+dolzinaB = 4
+dolzinaC = 5
+
+gamma = math.pi/2
+
