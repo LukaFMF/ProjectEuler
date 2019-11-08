@@ -15,32 +15,28 @@
 #We can see that 28 is the first triangle number to have over five divisors.
 #
 #What is the value of the first triangle number to have over five hundred divisors?
-prastevila = [2,3,5,7,11,13,17]
+prastevila = [2,3,5,7,11,13,17] # tabela prastevil, ki zadostuje za rešitev zastavljenega problema 
 
 def stevDeliteljev(tabelaFaktorjev):
-    tabelaPosameznihFaktorjev = 0
-    prod = 1
-
-    for prastev in prastevila:
-        prod *= tabelaFaktorjev.count(prastev) +1 
-    return prod
+    ''' Vrne stevilo deliteljev glede na (pra)faktorje stevila '''
+    prod = 1                                        # izkaze se, da prafaktorji stevila, zapisani v obliki p1^a,p2^b,p3^c,...
+    for prastev in prastevila:                      # (px - prafaktor;a,b,c,... - stevilo ponovitev prafaktorja) pokazejo
+        prod *= tabelaFaktorjev.count(prastev) + 1  # stevilo deliteljev, ki jih ima stevilo, ki smo ga razcepili na prafaktorje. 
+    return prod                                     # In sicer po formuli (a + 1)*(b + 1)*(c + 1)*.... 
 
 def fakotriziraj(stevilo):
-    faktorji = []
-    if stevilo in prastevila:
-        return faktorji + [stevilo]
-    for prastev in prastevila:
+    ''' REKURZIVNA Vrne tabelo, ki vsebuje '''
+    if stevilo in prastevila: # ali je stevilo prastevilo 
+        return [stevilo]
+    for prastev in prastevila: # ali se, da stevilo še enkrat razcepiti
         if stevilo % prastev == 0:
-            return faktorji + fakotriziraj(prastev) + fakotriziraj(stevilo//prastev)
-    return [stevilo]
+            return fakotriziraj(prastev) + fakotriziraj(stevilo//prastev)
+    return [stevilo] # ce nic od zgoraj ne vjame stevila je verjetnost velika, da je to stevilo prastevilo
         
 triangleNum = 1
 naravnoStevilo = 1
 
-while True:
-    faktorji = fakotriziraj(triangleNum)
-    if stevDeliteljev(faktorji) > 500:
-        break
+while stevDeliteljev(fakotriziraj(triangleNum)) <= 500:
     naravnoStevilo += 1
     triangleNum += naravnoStevilo
 print(triangleNum)

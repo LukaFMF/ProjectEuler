@@ -21,17 +21,17 @@
 #
 #What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
 
-import math 
-prejsnja1 = 0
-prejsnja2 = 0
-trenutna = 1
-stev = 0
-while int(math.log10(trenutna) + 1) < 1000:
-    if stev == 0 or stev == 1:
-        trenutna = 1
-    else:  
-        trenutna = prejsnja1 + prejsnja2
+import math,time
+prejsnja2 = 1 # vrednost zaporedja za n - 2
+prejsnja1 = 1 # vrednost zaporedja za n - 1
+trenutna = 2  # vrednost zaporedja za n
+stev = 3
+while int(math.log10(trenutna) + 1) < 1000: 
     prejsnja2 = prejsnja1
-    prejsnja1 = trenutna
+    trenutna += prejsnja1
+    prejsnja1 = trenutna - prejsnja2
+    print(trenutna)
     stev += 1
+    if stev > 100:
+        time.sleep(1)
 print(stev)
