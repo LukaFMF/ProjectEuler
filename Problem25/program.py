@@ -26,12 +26,9 @@ prejsnja2 = 1 # vrednost zaporedja za n - 2
 prejsnja1 = 1 # vrednost zaporedja za n - 1
 trenutna = 2  # vrednost zaporedja za n
 stev = 3
-while int(math.log10(trenutna) + 1) < 1000: 
-    prejsnja2 = prejsnja1
+while int(math.log10(trenutna) + 1) < 1000: # izkaze se, da log10 vraca stevilo stevk -1, v desetiskem stevilu, 
+    prejsnja2 = prejsnja1                   # ce odsekamo decimalni del in pristejemo 1 je rezultat tocen
     trenutna += prejsnja1
     prejsnja1 = trenutna - prejsnja2
-    print(trenutna)
     stev += 1
-    if stev > 100:
-        time.sleep(1)
 print(stev)
