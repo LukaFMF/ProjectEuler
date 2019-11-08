@@ -15,19 +15,32 @@
 #We can see that 28 is the first triangle number to have over five divisors.
 #
 #What is the value of the first triangle number to have over five hundred divisors?
+prastevila = [2,3,5,7,11,13,17]
 
-def steviloDeliteljev(stevilo):
-    ''' Vrne stevilo deliteljev, ki jih ima stevilo '''
-    delitelji = 2
-    stevec = 2
-    while stevec < stevilo:
-        if stevilo % stevec == 0:
-            delitelji += 1
-    return delitelji
+def stevDeliteljev(tabelaFaktorjev):
+    tabelaPosameznihFaktorjev = 0
+    prod = 1
+
+    for prastev in prastevila:
+        prod *= tabelaFaktorjev.count(prastev) +1 
+    return prod
+
+def fakotriziraj(stevilo):
+    faktorji = []
+    if stevilo in prastevila:
+        return faktorji + [stevilo]
+    for prastev in prastevila:
+        if stevilo % prastev == 0:
+            return faktorji + fakotriziraj(prastev) + fakotriziraj(stevilo//prastev)
+    return [stevilo]
+        
 triangleNum = 1
 naravnoStevilo = 1
 
-while steviloDeliteljev(triangleNum) <= 500:
+while True:
+    faktorji = fakotriziraj(triangleNum)
+    if stevDeliteljev(faktorji) > 500:
+        break
     naravnoStevilo += 1
     triangleNum += naravnoStevilo
 print(triangleNum)
