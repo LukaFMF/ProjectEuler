@@ -15,7 +15,7 @@
 #We can see that 28 is the first triangle number to have over five divisors.
 #
 #What is the value of the first triangle number to have over five hundred divisors?
-prastevila = [2,3,5,7,11,13,17] # tabela prastevil, ki zadostuje za rešitev zastavljenega problema 
+prastevila = [2,3,5,7,11,13,17] # tabela prastevil, ki so pogosti prafakotrji 
 
 def stevDeliteljev(tabelaFaktorjev):
     ''' Vrne stevilo deliteljev glede na (pra)faktorje stevila '''
@@ -30,8 +30,8 @@ def fakotriziraj(stevilo):
         return [stevilo]
     for prastev in prastevila: # ali se, da stevilo še enkrat razcepiti
         if stevilo % prastev == 0:
-            return fakotriziraj(prastev) + fakotriziraj(stevilo//prastev)
-    return [stevilo] # ce nic od zgoraj ne vjame stevila je verjetnost velika, da je to stevilo prastevilo
+            return fakotriziraj(prastev) + fakotriziraj(stevilo//prastev) # razcepimo na prafaktor in (pra)faktor
+    return [stevilo] # ce nic od zgoraj ne vjame stevila ima stevilo "cudne" faktorje, ki jih je malo
         
 triangleNum = 1
 naravnoStevilo = 1
