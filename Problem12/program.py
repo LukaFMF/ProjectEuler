@@ -25,7 +25,7 @@ def stevDeliteljev(tabelaFaktorjev):
     return prod                                     # In sicer po formuli (a + 1)*(b + 1)*(c + 1)*.... 
 
 def fakotriziraj(stevilo):
-    ''' REKURZIVNA Vrne tabelo, ki vsebuje '''
+    ''' REKURZIVNA Vrne tabelo, ki vsebuje (pra)faktorje danega stevila '''
     if stevilo in prastevila: # ali je stevilo prastevilo 
         return [stevilo]
     for prastev in prastevila: # ali se, da stevilo še enkrat razcepiti
