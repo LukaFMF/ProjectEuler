@@ -3,3 +3,11 @@
 #
 #Find the sum of all the multiples of 3 or 5 below 1000.
 
+stevilo = 1
+vsota = 0
+
+while stevilo < 1000:
+    if stevilo % 3 == 0 or stevilo % 5 == 0:
+        vsota += stevilo
+    stevilo += 1
+print(vsota) 
