@@ -7,7 +7,7 @@ stevilo = 1
 vsota = 0
 
 while stevilo < 1000:
-    if stevilo % 3 == 0 or stevilo % 5 == 0:
-        vsota += stevilo
+    if stevilo % 3 == 0 or stevilo % 5 == 0:    # ce je stevilo deljivo s 3 ali s 5 
+        vsota += stevilo                        # ga pristejemo vsoti
     stevilo += 1
 print(vsota) 
